@@ -90,11 +90,11 @@ def home():
         if 'ebay' in baseURL:
             kl=ebayed(baseURL)
 
-            return jsonify(kl)
+            return str(kl)
         elif 'amazon' in baseURL:
             pl=amazed(baseURL)
 
-            return jsonify(pl)
+            return str(pl)
 
         else:
             pass
