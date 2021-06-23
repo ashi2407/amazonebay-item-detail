@@ -19,11 +19,9 @@ def index():
 
 # After clicking the Submit Button FLASK will come into this
 def ebayed(url):
-    r = Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1;+http://www.google.com/bot.html)'})
-    web_url = urllib.request.urlopen(r)
-    d = web_url.read().decode('utf-8', 'ignore')
-    d = str(d)
-    soup = BeautifulSoup(d, 'html.parser')
+    page = requests.get(url,headers={"User-Agent":"Defined"})
+    soup = BeautifulSoup(page.content, "html.parser")
+    
 
     listu1 = []
     bloggy = soup.select('#CenterPanel')
@@ -40,13 +38,8 @@ def ebayed(url):
 
 
 def amazed(url):
-    r = Request(url,
-                headers={'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1;+http://www.google.com/bot.html)'})
-    web_url = urllib.request.urlopen(r)
-    d = web_url.read().decode('utf-8', 'ignore')
-    d = str(d)
-    soup = BeautifulSoup(d, 'html.parser')
-
+    page = requests.get(url,headers={"User-Agent":"Defined"})
+    soup = BeautifulSoup(page.content, "html.parser")
     listu = []
     bloggy = soup.select('#dp-container')
 
