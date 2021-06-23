@@ -5,7 +5,7 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for
 import os
 from flask_cors import CORS, cross_origin
 import json
-
+import requests
 app = Flask(__name__)
 cors = CORS(app)
 
@@ -20,10 +20,11 @@ def index():
 # After clicking the Submit Button FLASK will come into this
 def ebayed(url):
     try:
-        r = Request(url,headers={"User-Agent":"Defined"})
-        web_url = urllib.request.urlopen(r)
-        d = web_url.read().decode('utf-8', 'ignore')
-        d = str(d)
+        session = requests.Session()
+        session.trust_env = False
+        r = session.get(url,headers={"User-Agent":"Defined"})
+       
+        d = str(r)
         soup = BeautifulSoup(d, 'html.parser')
 
         listu1 = []
@@ -45,10 +46,10 @@ def ebayed(url):
 
 def amazed(url):
     try:
-        r = Request(url,headers={"User-Agent":"Defined"})
-        web_url = urllib.request.urlopen(r)
-        d = web_url.read().decode('utf-8', 'ignore')
-        d = str(d)
+        session = requests.Session()
+        session.trust_env = False
+        r = session.get(url,headers={"User-Agent":"Defined"})       
+        d = str(r)   
         soup = BeautifulSoup(d, 'html.parser')
 
         listu = []
