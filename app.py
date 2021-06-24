@@ -63,8 +63,8 @@ def amazed(url):
         return listu
     else:
         ku = []
-        url = 'http://api.scraperapi.com/?api_key=06cb789e1afb5ae8df2d0affcd2bfb95&url='+url+'&autoparse=true'
-        req = Request(url,headers={"User-Agent":"Defined"})
+        url1 = 'http://api.scraperapi.com/?api_key=06cb789e1afb5ae8df2d0affcd2bfb95&url='+url+'&autoparse=true'
+        req = Request(url1,headers={"User-Agent":"Defined"})
         json_url = urllib.request.urlopen(req)
         d = json_url.read()
         data = json.loads(d)
