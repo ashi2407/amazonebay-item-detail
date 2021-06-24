@@ -68,13 +68,12 @@ def amazed(url):
         json_url = urllib.request.urlopen(req)
         d = json_url.read()
         data = json.loads(d)
-        for x in data['results']:
-            di = {}
-            di['name'] = x['name']
-            di['pic'] = x['images'][0]
-            di['price'] = x['pricing']
-            di['url'] = url
-            ku.append(di)
+        di = {}
+        di['name'] = data['name']
+        di['pic'] = data['images'][0]
+        di['price'] = data['pricing']
+        di['url'] = url
+        ku.append(di)
         return ku
             
 
