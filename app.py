@@ -19,7 +19,7 @@ def index():
 
 # After clicking the Submit Button FLASK will come into this
 def ebayed(url):
-    page = requests.get(url,headers={"User-Agent":"Defined"})
+    page = requests.get(url,headers={'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1;+http://www.google.com/bot.html)'})
     soup = BeautifulSoup(page.content, "html.parser")
     
 
