@@ -55,7 +55,12 @@ def amazed(url):
 
         g = {'name': name, 'price': price, 'pic': image, 'url': url}
         listu.append(g)
-    return listu
+    if listu >0:
+        return listu
+    else:
+        f=[{'error':str(page)}]
+        return f
+            
 
 @app.route('/api/', methods=['GET'])
 @cross_origin()
