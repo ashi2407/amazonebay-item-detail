@@ -55,7 +55,7 @@ def amazed(url):
 
         g = {'name': name, 'price': price, 'pic': image, 'url': url}
         listu.append(g)
-    if listu >0:
+    if len(listu)>0:
         return listu
     else:
         f=[{'error':str(page)}]
