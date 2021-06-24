@@ -69,13 +69,13 @@ def amazed(url):
         d = json_url.read()
         data = json.loads(d)
         for x in data['results']:
-        di = {}
-        di['name'] = x['name']
-        di['pic'] = x['images'][0]
-        di['price'] = x['pricing']
-        di['url'] = url
-        ku.append(di)
-    return ku
+            di = {}
+            di['name'] = x['name']
+            di['pic'] = x['images'][0]
+            di['price'] = x['pricing']
+            di['url'] = url
+            ku.append(di)
+        return ku
             
 
 @app.route('/api/', methods=['GET'])
