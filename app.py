@@ -5,7 +5,7 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for
 import os
 from flask_cors import CORS, cross_origin
 import json
-
+import requests
 app = Flask(__name__)
 cors = CORS(app)
 
@@ -88,8 +88,8 @@ def home():
 
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+    #app.run(debug=True)
 
 
 #if __name__ == "__main__":
