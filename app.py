@@ -39,6 +39,10 @@ def ebayed(url):
 
 def amazed(url):
     page = requests.get(url,headers={"User-Agent":"Defined"})
+    if str(page)=='<Response [503]>':
+        page = requests.get(url,headers={"User-Agent":'Mozilla/5.0 (compatible; Googlebot/2.1;+http://www.google.com/bot.html)'})
+    else:
+        pass
     soup = BeautifulSoup(page.content, "html.parser")
     listu = []
     bloggy = soup.select('#dp-container')
