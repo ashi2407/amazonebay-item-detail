@@ -62,8 +62,20 @@ def amazed(url):
     if len(listu)>0:
         return listu
     else:
-        f=[{'error':str(page)}]
-        return f
+        ku = []
+        url = 'http://api.scraperapi.com/?api_key=06cb789e1afb5ae8df2d0affcd2bfb95&url='+url+'&autoparse=true'
+        req = Request(url,headers={"User-Agent":"Defined"})
+        json_url = urllib.request.urlopen(req)
+        d = json_url.read()
+        data = json.loads(d)
+        for x in data['results']:
+        di = {}
+        di['name'] = x['name']
+        di['pic'] = x['images'][0]
+        di['price'] = x['pricing']
+        di['url'] = url
+        ku.append(di)
+    return ku
             
 
 @app.route('/api/', methods=['GET'])
